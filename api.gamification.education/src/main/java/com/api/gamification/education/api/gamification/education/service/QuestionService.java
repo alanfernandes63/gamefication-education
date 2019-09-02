@@ -16,8 +16,8 @@ public class QuestionService {
 	@Autowired
 	QuestionRepository questionRepository;
 	
-	public void saveQuestion(Question question) {
-		questionRepository.save(question);
+	public Question saveQuestion(Question question) {
+		return questionRepository.save(question);
 	}
 	
 	public List<Question> listAllQuestions(Teacher teacher){
@@ -25,6 +25,14 @@ public class QuestionService {
 		//listar por professor
 		return questionRepository.findByTeacher(teacher);
 		//return null;
+	}
+	
+	public Question getQuestion(long id) {
+		return questionRepository.getOne(id);
+	}
+	
+	public void updateQuestion(Question question) {
+		questionRepository.save(question);
 	}
 	
 	public List<Question> geQuestions() {

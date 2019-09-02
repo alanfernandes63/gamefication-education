@@ -13,7 +13,7 @@ public class TeacherService {
 	TeacherRepository teacherRepository;
 	
 	public void saveTeacher(Teacher teacher) {
-		teacherRepository.save(teacher);
+		 teacherRepository.save(teacher);
 	}
 	
 	public Teacher getTeacher(long id) {
