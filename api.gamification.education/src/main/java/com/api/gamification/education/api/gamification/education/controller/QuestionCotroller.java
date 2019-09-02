@@ -23,9 +23,9 @@ public class QuestionCotroller {
 	@Autowired
 	TeacherService teacheService;
 	
-	@GetMapping(value="/questions/idTeacher")
+	@GetMapping(value="/questions/{idTeacher}")
 	public List<Question> listAllQuestions(@PathVariable(value="idTeacher") long idTeacher){
-		return questionService.listAllQuestions(idTeacher);
+		return questionService.listAllQuestions(teacheService.getTeacher(idTeacher));
 	}
 	
 	
@@ -34,5 +34,7 @@ public class QuestionCotroller {
 		question.setTeacher(teacheService.getTeacher(idTeacher));
 		questionService.saveQuestion(question);
 	}
+	
+	
 
 }

@@ -7,12 +7,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="tb_teacher")
 @PrimaryKeyJoinColumn(name="id_user")
 public class Teacher extends User{
 	@OneToMany(mappedBy="teacher")
+	@JsonIgnore
 	private List<Question> questions;
 
 	public Teacher() {
