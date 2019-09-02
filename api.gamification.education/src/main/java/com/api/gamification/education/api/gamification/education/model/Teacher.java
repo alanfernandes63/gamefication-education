@@ -12,19 +12,27 @@ import javax.persistence.Table;
 @Table(name="tb_teacher")
 @PrimaryKeyJoinColumn(name="id_user")
 public class Teacher extends User{
-	@OneToMany
-	private List<Activity> activities;
+	@OneToMany(mappedBy="teacher")
+	private List<Question> questions;
 
 	public Teacher() {
 		super();
 	}
 
-	public List<Activity> getActivities() {
-		return activities;
+	public Teacher(List<Question> questions) {
+		super();
+		this.questions = questions;
 	}
 
-	public void setActivities(List<Activity> activities) {
-		this.activities = activities;
+
+
+
+
+	public List<Question> getQuestions() {
+		return questions;
 	}
-	
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
 }
