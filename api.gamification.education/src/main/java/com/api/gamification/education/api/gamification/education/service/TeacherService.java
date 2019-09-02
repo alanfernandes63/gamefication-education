@@ -19,4 +19,14 @@ public class TeacherService {
 	public Teacher getTeacher(long id) {
 		return teacherRepository.findById(id);
 	}
+	
+	public Teacher deleteTeacher(long id) {
+		Teacher teacher = teacherRepository.getOne(id);
+		if(teacher != null) {
+			teacherRepository.deleteById(id);
+			return teacher;
+		}
+		else
+			return null;
+	}
 }

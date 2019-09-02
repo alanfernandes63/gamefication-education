@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tb_questions")
 public class Question {
@@ -34,6 +36,7 @@ public class Question {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name="id_user")
+	@JsonIgnore
 	private Teacher teacher;
 	
 	

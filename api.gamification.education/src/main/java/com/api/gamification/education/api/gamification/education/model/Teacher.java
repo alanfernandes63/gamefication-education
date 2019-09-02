@@ -7,6 +7,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -16,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Teacher extends User{
 	@OneToMany(mappedBy="teacher")
 	@JsonIgnore
+	@Cascade(CascadeType.ALL)
 	private List<Question> questions;
 
 	public Teacher() {
