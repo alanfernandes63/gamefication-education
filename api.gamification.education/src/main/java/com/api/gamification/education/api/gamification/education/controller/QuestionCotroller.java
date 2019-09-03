@@ -21,27 +21,29 @@ import com.api.gamification.education.api.gamification.education.service.Questio
 import com.api.gamification.education.api.gamification.education.service.TeacherService;
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/api/v1/")
 public class QuestionCotroller {
 	@Autowired
 	QuestionService questionService;
 	
+	private final String path = "teacher/questions/";
+	
 	@Autowired
 	TeacherService teacheService;
 	
-	@GetMapping(value="/questions/{idTeacher}")
-	@PreAuthorize("(hasRole('ADMIN'))")
+	@GetMapping(path= path + "{idTeacher}")
+	//@PreAuthorize("(hasRole('TEACHER'))")
 	public ResponseEntity<List<Question>> listAllQuestions(@PathVariable(value="idTeacher") long idTeacher){
 		Teacher teacher = teacheService.getTeacher(idTeacher);
 		questionService.listAllQuestions(teacher);
 		if(teacher != null)
-		return new ResponseEntity<List<Question>>(questionService.listAllQuestions(teacher),HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<List<Question>>(questionService.listAllQuestions(teacher),HttpStatus.OK);
 		else
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	
-	@PostMapping(value="/questions/{idTeacher}")
+	@PostMapping(path= path + "{idTeacher}")
 	public ResponseEntity<Question> saveQuestion(@PathVariable long idTeacher,@RequestBody Question question) {
 		Teacher teacher = teacheService.getTeacher(idTeacher);
 		if(teacher != null) {
@@ -52,14 +54,14 @@ public class QuestionCotroller {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
 	
-	@DeleteMapping(value="/questions/{id}")
+	@DeleteMapping(path = path + "{id}")
 	public ResponseEntity deleteQuestions(@PathVariable long id) {
 		
 		questionService.deleteQuestion(id);
 		return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	
-	@PutMapping(value="questions/{id}")
+	@PutMapping(path = path + "{id}")
 	public ResponseEntity updateQuestion(@RequestBody Question questionUpdate,@PathVariable long id) {
 		Question question = questionService.getQuestion(id);
 		if(question != null) {

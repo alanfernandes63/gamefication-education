@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,7 @@ public class TeacherController {
 	TeacherService teacherService;
 	
 	@PostMapping(value="/teacher")
+	@PreAuthorize("(hasRole('TEACHER'))")
 	public void saveTeacher(@RequestBody Teacher teacher) {
 		teacherService.saveTeacher(teacher);
 	}
@@ -34,11 +37,14 @@ public class TeacherController {
 	}
 	
 	@GetMapping(value="teacher/")
-	public ResponseEntity getUserNameTeacher(@RequestParam("userName") String userName) {
-		Teacher teacher = teacherService.getUserNameTeacher(userName);
+	public ResponseEntity getUserNameTeacher(@RequestParam("userName") String userName,@AuthenticationPrincipal
+			UserDetails userDetails) {
+		
+		System.out.println(userDetails.toString());
+		/*Teacher teacher = teacherService.getUserNameTeacher(userName);
 		if(teacher != null)
 		return new ResponseEntity(HttpStatus.OK);
-		else
+		else*/
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
 	
