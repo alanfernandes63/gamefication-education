@@ -17,11 +17,11 @@ import com.api.gamification.education.api.gamification.education.model.UserType;
 import com.api.gamification.education.api.gamification.education.repository.TeacherRepository;
 
 
-@Component
-public class CustonUserDetailService implements UserDetailsService{
+//@Component
+//public class CustonUserDetailService implements UserDetailsService{
 
 	
-	private final TeacherRepository teacherRepository;
+	//private final TeacherRepository teacherRepository;
 	/*
 	@Autowired
 	public CustonUserDetailService(TeacherRepository teacherRepository) {
@@ -46,4 +46,4 @@ public class CustonUserDetailService implements UserDetailsService{
 			return null;
 	}*/
 
-}
+//}
