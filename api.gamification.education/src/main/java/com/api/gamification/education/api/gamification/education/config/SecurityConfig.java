@@ -7,8 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.api.gamification.education.api.gamification.education.service.CustonUserDetailService;
+/*import com.api.gamification.education.api.gamification.education.service.CustonUserDetailService;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
@@ -41,5 +40,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().withUser("ADMIN").
 		password("{noop}123").
 		roles("USER","ADMIN");
-	}*/
-}
+	}
+}*/
