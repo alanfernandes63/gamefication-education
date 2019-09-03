@@ -22,7 +22,7 @@ public class CustonUserDetailService implements UserDetailsService{
 
 	
 	private final TeacherRepository teacherRepository;
-	
+	/*
 	@Autowired
 	public CustonUserDetailService(TeacherRepository teacherRepository) {
 		// TODO Auto-generated constructor stub
@@ -44,6 +44,6 @@ public class CustonUserDetailService implements UserDetailsService{
 		}
 		else
 			return null;
-	}
+	}*/
 
 }
