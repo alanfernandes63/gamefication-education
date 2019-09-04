@@ -1,5 +1,5 @@
 package com.api.gamification.education.api.gamification.education.service;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -40,4 +40,4 @@ public class TeacherService {
 		else
 			return null;
 	}
-}
+}*/

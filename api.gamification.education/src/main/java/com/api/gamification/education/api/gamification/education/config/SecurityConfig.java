@@ -1,5 +1,5 @@
 package com.api.gamification.education.api.gamification.education.config;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

@@ -1,5 +1,5 @@
 package com.api.gamification.education.api.gamification.education.controller;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +44,7 @@ public class TeacherController {
 		/*Teacher teacher = teacherService.getUserNameTeacher(userName);
 		if(teacher != null)
 		return new ResponseEntity(HttpStatus.OK);
-		else*/
+		else
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
 	
@@ -59,3 +59,4 @@ public class TeacherController {
 	}
 
 }
+*/
