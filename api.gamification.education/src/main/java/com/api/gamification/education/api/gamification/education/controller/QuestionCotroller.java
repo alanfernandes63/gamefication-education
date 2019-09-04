@@ -1,7 +1,6 @@
 package com.api.gamification.education.api.gamification.education.controller;
 
 import java.util.List;
-/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +31,7 @@ public class QuestionCotroller {
 	TeacherService teacheService;
 	
 	@GetMapping(path= path + "{idTeacher}")
-	//@PreAuthorize("(hasRole('TEACHER'))")
+	@PreAuthorize("(hasRole('TEACHER'))")
 	public ResponseEntity<List<Question>> listAllQuestions(@PathVariable(value="idTeacher") long idTeacher){
 		Teacher teacher = teacheService.getTeacher(idTeacher);
 		questionService.listAllQuestions(teacher);
@@ -54,14 +53,14 @@ public class QuestionCotroller {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
 	
-	@DeleteMapping(path = path + "{id}")
+	@DeleteMapping(path = path + "{idQuestion}")
 	public ResponseEntity deleteQuestions(@PathVariable long id) {
 		
 		questionService.deleteQuestion(id);
 		return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	
-	@PutMapping(path = path + "{id}")
+	@PutMapping(path = path + "{idQuestion}")
 	public ResponseEntity updateQuestion(@RequestBody Question questionUpdate,@PathVariable long id) {
 		Question question = questionService.getQuestion(id);
 		if(question != null) {
@@ -80,4 +79,3 @@ public class QuestionCotroller {
 	
 
 }
-*/

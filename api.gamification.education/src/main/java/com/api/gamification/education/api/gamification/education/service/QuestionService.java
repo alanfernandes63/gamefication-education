@@ -21,10 +21,7 @@ public class QuestionService {
 	}
 	
 	public List<Question> listAllQuestions(Teacher teacher){
-		
-		//listar por professor
 		return questionRepository.findByTeacher(teacher);
-		//return null;
 	}
 	
 	public Question getQuestion(long id) {
