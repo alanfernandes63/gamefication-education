@@ -12,9 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-//import com.api.gamification.education.api.gamification.education.model.Teacher;
 import com.api.gamification.education.api.gamification.education.model.UserType;
-//import com.api.gamification.education.api.gamification.education.repository.TeacherRepository;
 import com.api.gamification.education.api.gamification.education.repository.UserRepository;
 
 

@@ -13,6 +13,7 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long>{
 	Teacher findById(long id);
 	Teacher findByUserName(String userName);
 	
+	//Select all teachers type users
 	@Query("SELECT u FROM Teacher u WHERE u.userType = :userType")
 	List<Teacher> findAllTeachers(UserType userType);
 }

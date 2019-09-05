@@ -1,10 +1,12 @@
 package com.api.gamification.education.api.gamification.education.service;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.api.gamification.education.api.gamification.education.dto.ResponseTeacherDTO;
 import com.api.gamification.education.api.gamification.education.model.Teacher;
 import com.api.gamification.education.api.gamification.education.model.UserType;
 import com.api.gamification.education.api.gamification.education.repository.TeacherRepository;
@@ -28,12 +30,17 @@ public class TeacherService {
 		return responseTeacher;
 	}
 	
-	public List<Teacher> listAllTeachers(){
-		return teacherRepository.findAllTeachers(UserType.TEACHER);
+	public List<ResponseTeacherDTO> listAllTeachersDTO(){
+		List<ResponseTeacherDTO> listTeacherDto = new ArrayList<ResponseTeacherDTO>();
+		
+		for(Teacher teacher: teacherRepository.findAll()) {
+			listTeacherDto.add(ResponseTeacherDTO.transformToResponseTeacherDTO(teacher));
+		}
+		return listTeacherDto;
 	}
 	
-	public Teacher getTeacher(long id) {
-		return teacherRepository.findById(id);
+	public ResponseTeacherDTO getTeacherDTO(long id) {
+		return ResponseTeacherDTO.transformToResponseTeacherDTO(teacherRepository.findById(id));
 	}
 	
 	public Teacher getUserNameTeacher(String userName) {
@@ -63,5 +70,9 @@ public class TeacherService {
 			return teacherRepository.save(newTeacher);
 		}
 		return null;
+	}
+	
+	public Teacher getTeacher(long id) {
+		return teacherRepository.findById(id);
 	}
 }
