@@ -31,7 +31,6 @@ public class QuestionCotroller {
 	TeacherService teacheService;
 	
 	@GetMapping(path= path + "{idTeacher}")
-	@PreAuthorize("(hasRole('TEACHER'))")
 	public ResponseEntity<List<Question>> listAllQuestions(@PathVariable(value="idTeacher") long idTeacher){
 		Teacher teacher = teacheService.getTeacher(idTeacher);
 		questionService.listAllQuestions(teacher);
@@ -54,15 +53,15 @@ public class QuestionCotroller {
 	}
 	
 	@DeleteMapping(path = path + "{idQuestion}")
-	public ResponseEntity deleteQuestions(@PathVariable long id) {
+	public ResponseEntity deleteQuestions(@PathVariable long idQuestion) {
 		
-		questionService.deleteQuestion(id);
+		questionService.deleteQuestion(idQuestion);
 		return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	
 	@PutMapping(path = path + "{idQuestion}")
-	public ResponseEntity updateQuestion(@RequestBody Question questionUpdate,@PathVariable long id) {
-		Question question = questionService.getQuestion(id);
+	public ResponseEntity updateQuestion(@RequestBody Question questionUpdate,@PathVariable long idQuestion) {
+		Question question = questionService.getQuestion(idQuestion);
 		if(question != null) {
 			Teacher teacher = question.getTeacher();
 			questionUpdate.setId(question.getId());

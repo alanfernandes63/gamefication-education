@@ -35,12 +35,12 @@ public class Application {
 			admin.setUserType(UserType.ADMIN);
 			adminRepository.save(admin);*/
 			
-			Teacher teacher = new Teacher();
+			/*Teacher teacher = new Teacher();
 			teacher.setName("teacher");
 			teacher.setUserName("teacher");
 			teacher.setPassword("teacher");
 			teacher.setUserType(UserType.TEACHER);
-			teacherService.saveTeacher(teacher);
+			teacherService.saveTeacher(teacher);*/
 			
 		};
 	}
